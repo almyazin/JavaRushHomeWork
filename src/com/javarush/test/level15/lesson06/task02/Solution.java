@@ -14,16 +14,10 @@ public class Solution {
         NakedCat nakedSimka = simka.shave();
     }
 
-    public static class NakedCat {
-        public NakedCat() {
-            super();
-        }
-    }
+    public static class NakedCat {}
 
     public static class NormalCat extends NakedCat {
-        public NormalCat() {
-            super();
-        }
+        public NormalCat() {}
 
         public NormalCat(String name) {
             System.out.println("My name is " + name);

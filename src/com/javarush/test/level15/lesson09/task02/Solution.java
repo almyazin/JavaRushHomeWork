@@ -10,17 +10,45 @@ import java.io.InputStreamReader;
 3. Закрыть поток ввода методом close().
 */
 
-public class Solution {
+public class Solution
+{
     public static int A;
     public static int B;
 
+    static
+    {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        try
+        {
+            A = Integer.parseInt(in.readLine());
+            B = Integer.parseInt(in.readLine());
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                in.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static final int MIN = min(A, B);
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println(MIN);
     }
 
-    public static int min(int a, int b) {
+    public static int min(int a, int b)
+    {
         return a < b ? a : b;
     }
 }

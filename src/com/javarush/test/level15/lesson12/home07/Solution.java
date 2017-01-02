@@ -16,6 +16,37 @@ import java.util.List;
 public class Solution {
     public static List<String> lines = new ArrayList<String>();
 
+    static {
+        BufferedReader in = null;
+        try
+        {
+            in = new BufferedReader(new FileReader(Constants.FILE_NAME));
+            String l = null;
+            while (null != (l = in.readLine()))
+                lines.add(l);
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if (null != in)
+                try
+                {
+                    in.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(lines);
     }

@@ -38,6 +38,7 @@ public class Solution {
             try {
                 while (!isStopped) {
                     printTime();
+                    Thread.sleep(1000);
                 }
             } catch (InterruptedException e) {
             }
@@ -45,12 +46,26 @@ public class Solution {
 
         private void printTime() throws InterruptedException {
             //add your code here - добавь код тут
+            if (60 == ++seconds)
+            {
+                seconds = 0;
+                if (60 == ++minutes)
+                {
+                    minutes = 0;
+                    if (24 == ++hours)
+                    {
+                        hours = 0;
+                    }
+                }
+            }
 
             if (hours == 0 && minutes == 0 && seconds == 0) {
                 System.out.println(String.format("В г. %s сейчас полночь!", cityName));
             } else {
                 System.out.println(String.format("В г. %s сейчас %d:%d:%d!", cityName, hours, minutes, seconds));
             }
+
+
         }
     }
 }
